@@ -1,0 +1,5 @@
+header
+footer
+main_text
+side_text
+filler

@@ -1,11 +1,28 @@
+# Python
 .venv/
 __pycache__/
 *.pyc
 
+# Dataset
+data/immi_raw/
+data/yolo/
+data/test_images/
+
+# Generated outputs
 results/*
+runs/
+
+# Training artifacts
+yolo11n.pt
+
+# Large source archive
+IMMI_dataset.zip
+
+# Keep final trained model
 models/*
+!models/best.pt
 
+# Environment / IDE
 .env
-
 .vscode/
 .idea/
