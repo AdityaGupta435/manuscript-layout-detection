@@ -137,6 +137,17 @@ The final trained model is stored at:
 models/best.pt
 ```
 
+### Model Rationale
+
+YOLO11n was selected as a lightweight object-detection model suitable for
+bounding-box localization and multi-class classification. The model provides
+a practical balance between detection capability and computational cost,
+which was important because training and inference were performed on a
+CPU-only environment with limited hardware resources.
+
+The model was fine-tuned for the five manuscript-specific layout classes:
+header, footer, main_text, side_text, and filler.
+
 ## 6. Installation
 
 Create and activate a virtual environment:
