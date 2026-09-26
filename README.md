@@ -45,6 +45,7 @@ manuscript-layout-detection/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+```
 
 ## 2. Classes
 
@@ -56,7 +57,7 @@ The system detects five manuscript layout classes:
 | 1 | `footer` | Footer, page number, folio, or bottom annotation |
 | 2 | `main_text` | Primary textual content |
 | 3 | `side_text` | Marginal notes, annotations, or text outside the primary reading flow |
-| 4 | `filler` | Meaningful non-primary visual content such as illustrations, diagrams, or decorative panels |
+| 4 | `filler` | Decorative elements, English text, pencil text, illustrations, diagrams, or ornamental panels |
 
 Classes are not forced onto every image. A manuscript page can contain zero instances of a class.
 
@@ -75,11 +76,8 @@ Annotations use the YOLO format:
 
 ```text
 class_id center_x center_y width height
+```
 
-
-## 4. Annotation Rules
-
-```markdown
 ## 4. Annotation Rules
 
 Annotations represent semantic regions rather than physical page artifacts.
@@ -108,10 +106,9 @@ Annotate text outside the primary reading flow, including marginal notes and cle
 
 ### Filler
 
-Annotate meaningful non-primary visual content such as illustrations, diagrams, or ornamental panels.
+Annotate decorative elements, English text, pencil text, illustrations, diagrams, or ornamental panels that are treated as filler according to the assignment definition.
 
 Do not annotate stains, shadows, holes, blank damaged regions, borders, or other background artifacts.
-
 
 ## 5. Model
 
@@ -121,17 +118,24 @@ The project uses an Ultralytics YOLO object-detection model.
 
 ```text
 YOLO11n
+```
 
-Training configuration:
+### Training Configuration
+
+```text
 Epochs : 30
 Image size : 640
 Batch size : 2
 Device : CPU
 Train/validation split : 80/20
 Random seed : 42
+```
 
 The final trained model is stored at:
+
+```text
 models/best.pt
+```
 
 ## 6. Installation
 
@@ -140,34 +144,39 @@ Create and activate a virtual environment:
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+```
 
 Install the required dependencies:
+
+```powershell
 pip install -r requirements.txt
+```
 
-
-## 7. Inference
-
-```markdown
 ## 7. Inference
 
 The required inference command is:
 
 ```powershell
 python inference.py --input ./data/test_images --output ./results
+```
 
 The input can be either:
 
-A single image
-A directory containing multiple images
+- A single image
+- A directory containing multiple images
 
-Example:python inference.py --input ./data/raw --output ./results
+Example:
 
-An optional confidence threshold can also be specified:python inference.py --input ./data/test_images --output ./results --confidence 0.40
+```powershell
+python inference.py --input ./data/raw --output ./results
+```
 
+An optional confidence threshold can also be specified:
 
-## 8. Output
+```powershell
+python inference.py --input ./data/test_images --output ./results --confidence 0.40
+```
 
-```markdown
 ## 8. Output
 
 The inference pipeline creates the following output structure:
@@ -183,17 +192,14 @@ results/
     ├── image1.json
     ├── image2.json
     └── ...
+```
 
-    The annotated/ directory contains images with detected bounding boxes.
+The `annotated/` directory contains images with detected bounding boxes.
 
-The json/ directory contains machine-readable detection results.
+The `json/` directory contains machine-readable detection results.
 
 Original input images are not modified.
 
-
-## 9. JSON Format
-
-```markdown
 ## 9. JSON Format
 
 Each processed image generates a corresponding JSON file.
@@ -219,33 +225,33 @@ Example:
     }
   ]
 }
+```
 
 Bounding boxes use pixel coordinates:
 
+```text
 x1, y1 = top-left
 x2, y2 = bottom-right
+```
 
 Coordinates are clamped to the image boundaries.
 
-
-## 10. Dataset Validation
-
-```markdown
 ## 10. Dataset Validation
 
 Validate the YOLO annotations using:
 
 ```powershell
 python .\src\validate_dataset.py
+```
 
 The validation checks:
 
-Image/label matching
-YOLO annotation format
-Valid class IDs
-Normalized coordinates
-Positive bounding-box dimensions
-Page-boundary constraints
+- Image/label matching
+- YOLO annotation format
+- Valid class IDs
+- Normalized coordinates
+- Positive bounding-box dimensions
+- Page-boundary constraints
 
 A successful validation confirms that the dataset annotations follow the expected YOLO format and boundary requirements.
 
@@ -255,19 +261,16 @@ Validate generated JSON outputs using:
 
 ```powershell
 python .\src\validate_results.py
+```
 
 The validator checks:
 
-Required JSON fields
-Valid class names
-Confidence range
-Bounding-box boundaries
-Valid bounding-box dimensions
+- Required JSON fields
+- Valid class names
+- Confidence range
+- Bounding-box boundaries
+- Valid bounding-box dimensions
 
-
-## 12. Testing
-
-```markdown
 ## 12. Testing
 
 The inference pipeline was tested on a batch of 45 images.
@@ -280,33 +283,38 @@ Annotated images : 45
 JSON files       : 45
 Total detections : 236
 Validation errors: 0
+```
 
 A separate confidence-threshold test was also performed at:
 
+```text
 confidence = 0.40
+```
 
 Three test images with different aspect ratios were processed successfully.
 
 Boundary validation passed for all tested outputs.
 
-
-
 ## 13. Robustness Considerations
 
-```markdown
-## 13. Robustness Considerations
+The assignment requires the system to handle variations including faded ink, bleed-through, stains, blur, skew, uneven lighting, page damage, varying aspect ratios, multi-column layouts, and different writing styles.
 
-The manuscript dataset contains variations such as:
+The prototype was evaluated for:
 
 - Different image aspect ratios
 - Historical manuscript layouts
 - Multiple text blocks
 - Multi-column layouts
 - Marginal text
-- Visual degradation
-- Uneven page structure
+- Different page dimensions
+- Bounding-box boundary constraints
+- Confidence-threshold variation
 
-The pipeline supports different image dimensions and clamps predicted bounding boxes to image boundaries.
+The inference pipeline supports different image dimensions and clamps predicted bounding boxes to image boundaries.
+
+Because the prototype uses a relatively small manually annotated dataset of 45 images, exhaustive evaluation of every degradation condition listed in the assignment was not performed. These conditions are therefore treated as robustness considerations rather than claims of complete robustness.
+
+A production-scale system would require additional annotated examples covering faded ink, bleed-through, stains, blur, skew, uneven lighting, page damage, and a wider range of writing styles and layouts.
 
 ## 14. Reproducibility
 

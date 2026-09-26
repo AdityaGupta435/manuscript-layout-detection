@@ -1,0 +1,51 @@
+{
+  "image": "penn_hyphen_001.jpg",
+  "image_width": 497,
+  "image_height": 650,
+  "detections": [
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9665,
+      "bounding_box": {
+        "x1": 88.09,
+        "y1": 406.94,
+        "x2": 408.93,
+        "y2": 566.03
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9272,
+      "bounding_box": {
+        "x1": 96.1,
+        "y1": 93.38,
+        "x2": 397.17,
+        "y2": 248.45
+      }
+    },
+    {
+      "class_id": 1,
+      "class": "footer",
+      "confidence": 0.8447,
+      "bounding_box": {
+        "x1": 406.32,
+        "y1": 83.43,
+        "x2": 435.22,
+        "y2": 106.55
+      }
+    },
+    {
+      "class_id": 1,
+      "class": "footer",
+      "confidence": 0.4846,
+      "bounding_box": {
+        "x1": 47.82,
+        "y1": 123.89,
+        "x2": 79.72,
+        "y2": 145.41
+      }
+    }
+  ]
+}

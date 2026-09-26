@@ -1,0 +1,40 @@
+{
+  "image": "ASR_Images_001.jpg",
+  "image_width": 3239,
+  "image_height": 1187,
+  "detections": [
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9306,
+      "bounding_box": {
+        "x1": 366.29,
+        "y1": 182.45,
+        "x2": 2854.04,
+        "y2": 1039.9
+      }
+    },
+    {
+      "class_id": 1,
+      "class": "footer",
+      "confidence": 0.2821,
+      "bounding_box": {
+        "x1": 63.18,
+        "y1": 221.86,
+        "x2": 154.67,
+        "y2": 274.36
+      }
+    },
+    {
+      "class_id": 1,
+      "class": "footer",
+      "confidence": 0.2564,
+      "bounding_box": {
+        "x1": 2914.8,
+        "y1": 258.53,
+        "x2": 3069.45,
+        "y2": 378.36
+      }
+    }
+  ]
+}

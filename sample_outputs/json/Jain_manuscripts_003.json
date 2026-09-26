@@ -1,0 +1,128 @@
+{
+  "image": "Jain_manuscripts_003.jpg",
+  "image_width": 5100,
+  "image_height": 3413,
+  "detections": [
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9984,
+      "bounding_box": {
+        "x1": 1287.92,
+        "y1": 1616.02,
+        "x2": 2632.33,
+        "y2": 2014.35
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9983,
+      "bounding_box": {
+        "x1": 1278.68,
+        "y1": 511.42,
+        "x2": 2554.67,
+        "y2": 854.94
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9951,
+      "bounding_box": {
+        "x1": 2864.81,
+        "y1": 2163.39,
+        "x2": 4613.47,
+        "y2": 2555.87
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9938,
+      "bounding_box": {
+        "x1": 1295.69,
+        "y1": 2782.69,
+        "x2": 2655.01,
+        "y2": 3172.89
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9931,
+      "bounding_box": {
+        "x1": 1260.24,
+        "y1": 1056.58,
+        "x2": 2579.69,
+        "y2": 1402.03
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9926,
+      "bounding_box": {
+        "x1": 2813.16,
+        "y1": 1017.14,
+        "x2": 4585.43,
+        "y2": 1404.39
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9889,
+      "bounding_box": {
+        "x1": 2821.0,
+        "y1": 545.48,
+        "x2": 4601.55,
+        "y2": 882.34
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9636,
+      "bounding_box": {
+        "x1": 2887.73,
+        "y1": 2758.78,
+        "x2": 4692.5,
+        "y2": 3105.99
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9634,
+      "bounding_box": {
+        "x1": 2830.79,
+        "y1": 1613.39,
+        "x2": 4650.41,
+        "y2": 1955.03
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.9614,
+      "bounding_box": {
+        "x1": 1277.71,
+        "y1": 2149.33,
+        "x2": 2599.65,
+        "y2": 2571.2
+      }
+    },
+    {
+      "class_id": 2,
+      "class": "main_text",
+      "confidence": 0.8083,
+      "bounding_box": {
+        "x1": 3416.06,
+        "y1": 116.23,
+        "x2": 4995.73,
+        "y2": 405.24
+      }
+    }
+  ]
+}
